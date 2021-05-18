@@ -1,0 +1,12 @@
+html, body {
+  margin: 20;
+  padding: 20;
+}
+
+canvas {
+  position: relative;
+  display: block;
+  border-radius: 150px;
+  border-color: white;
+  border-width: thick;
+}
