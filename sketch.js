@@ -4,11 +4,15 @@ var numSeeds = 20;
 var currCanvas;
 var nextCanvas;
 
+// dA and dB are the initial concentrations of chemicals A and B
+// f and k are other constants that can be adjusted depending on the type of reaction implemented
+// since B-Z reaction is implemented, these values were found from sources cited in the ReadMe
 var dA = 1;
 var dB = .5;
 var f = 0.0545;
 var k = 0.062;
 
+// sets up the canvas parameters
 function setup() {
   createCanvas(size, size);
   pixelDensity(1);
@@ -23,7 +27,7 @@ function setup() {
     }
   }
  
-  //create randomized seed areas
+  // creates randomized seed areas - the intial starting sites for the reaction
   for (var seed = 0; seed < numSeeds; seed++){
     randi = floor(Math.random()*size)
     randj= floor(Math.random()*size)
@@ -38,7 +42,7 @@ function setup() {
 function draw() {
   background(50);
 
-  //core formula and functionality
+  //core update formula and functionality
   for (var x = 1; x < width - 1; x++) {
     for (var y = 1; y < height - 1; y++) {
       var a = currCanvas[x][y].a;
@@ -50,7 +54,7 @@ function draw() {
     }
   }
 
-  //create graphics
+  //creates graphics by updating the color of each pixel based on the concentrations
   loadPixels();
   for (var x = 0; x < width; x++) {
     for (var y = 0; y < height; y++) {
